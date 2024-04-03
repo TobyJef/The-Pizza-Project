@@ -1,1 +1,1 @@
-web: gunicorn pizzaproject.wsgi
+web: gunicorn the-pizza-project.wsgi

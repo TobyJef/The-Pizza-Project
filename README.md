@@ -36,6 +36,10 @@ Site Goals
 
 ## Testing
 
+- Bugs
+
+The first bug I encountered building my project was very early in the development cycle. I was met with an error when trying to install pyscopg
+
 ## Deployment
 
 ## Credit

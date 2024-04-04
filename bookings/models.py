@@ -21,7 +21,7 @@ class Post(models.Model):
         ordering = ['-created_on']
     
     def __str__(self):
-        return f"Review {self.body} by {self.name}"
+        return self.title
     
 # Customer Review model
 
@@ -39,6 +39,6 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return self.title
+        return f"Review {self.body} by {self.name}"
 
 # Review reply model

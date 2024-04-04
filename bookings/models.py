@@ -15,10 +15,10 @@ class Post(models.Model):
     content = models.TextField()
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntergerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
-        ordering = ['+created_on']
+        ordering = ['-created_on']
     
     def __str__(self):
         return f"Review {self.body} by {self.name}"
@@ -32,7 +32,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=100)
     body = models.TextField()
-    created_on = models.DateTimeField(auto_noow_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
@@ -41,3 +41,4 @@ class Comment(models.Model):
     def __str__(self):
         return self.title
 
+# Review reply model

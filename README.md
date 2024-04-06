@@ -37,6 +37,7 @@ Site Goals
 - HTML, CSS, JavaScript
 - Django
 - Bootstrap
+- Allauth for new user account registration 
 
 ## Testing
 

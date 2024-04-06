@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>The Pizza Project</title>
+    <title>The Pizza Project | Community Based Pizza Co</title>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +11,25 @@
     <meta name="keywords" content="the pizza project, bristol, bristol pizza, local pizza, locally sourced,
         fresh ingredients, pizza slice, grab and go, community, mobile pizza, charity, charitable, local charities" />
     <!-- /meta seo tags -->
-    <title>Document</title>
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('menu') }}">Menu</a></li>
+            <li><a href="{{ url_for('reviews') }}">Reviews</a></li>
+            {% if user.is.authenticated %}
+            <li><a href="{% url 'account_logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'account_signup %'}">Register</a></li>
+            <li><a href="{% url 'account_login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+     </nav>
+    
+     {% block content %}
+     {% endblock %}
 
 </body>
 

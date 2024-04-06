@@ -38,6 +38,7 @@ Site Goals
 - Django
 - Bootstrap
 - Allauth for new user account registration 
+- Flask
 
 ## Testing
 

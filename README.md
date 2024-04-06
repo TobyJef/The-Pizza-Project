@@ -34,11 +34,15 @@ Site Goals
 
 ## Technologies
 
+- HTML, CSS, JavaScript
+- Django
+- Bootstrap
+
 ## Testing
 
 - Bugs
 
-The first bug I encountered building my project was very early in the development cycle. I was met with an error when trying to install pyscopg
+The first bug I encountered building my project was very early in the development cycle. Luckily, it turned out to be a small error and easily corrected once realised. I was met with an error message when trying to install pyscopg. I first tried to find a solution by reviewing posts in Slack to see if other students had similar issues. I spotted a post from with the same problem, and the reply was to install the binary version of pyscopg. Upon installing that variation and reviewing my own code, it was then I discovered that I had been spelling pyscopg incorrectly, and had not noticed that I had the y and the s in pyscopg the wrong way round. 
 
 ## Deployment
 

@@ -1,5 +1,5 @@
-from django.shortcuts import render, HttpResponse
-from django.views import generic
+from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.views import generic, View
 from .models import Post
 
 

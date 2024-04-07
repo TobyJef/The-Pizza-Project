@@ -11,17 +11,16 @@
     <!-- /meta seo tags -->
     <!-- Favicon Icon -->
     <!-- /favicon icon -->
-    <!-- Bootstrap Theme -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/grayscale.css')}}">
-    <!-- /bootstrap theme -->
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/')}}">
-
+    <!-- Grayscale Bootstrap Theme -->
+  
+    <!-- /grayscale bootstrap theme -->
+    <!-- Site Name -->
     <title>The Pizza Project | Community Based Pizza Co</title>
+    <!--/site name-->
 </head>
 
 <body>
-    <nav>
+    <nav class="navbar">
         <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('menu') }}">Menu</a></li>
@@ -29,7 +28,7 @@
             {% if user.is.authenticated %}
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
-            <li><a href="{% url 'account_signup %'}">Register</a></li>
+            <li><a href="{% url 'account_signup' %}">Register</a></li>
             <li><a href="{% url 'account_login' %}">Login</a></li>
             {% endif %}
         </ul>

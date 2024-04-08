@@ -3,11 +3,25 @@ from django.views import generic, View
 from .models import Post
 
 
-# Create your views here.
+# Home Page View
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('created_on')
     template_name = 'bookings/index.html'
     paginate_by = 5
+
+# /home page view
+
+# Menu Page View
+class PostDetail(generic.View):
+
+    def menu(request):
+        return render (
+            request,
+             'bookings/menu.html'
+        )
+
+# /menu page view
+
 
 class PostDetail(View):
 

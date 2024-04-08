@@ -28,6 +28,8 @@
     <nav class="navbar">
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'menu' %}">Menu</a></li>
+
 
             {% if user.is_authenticated %}
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
@@ -40,6 +42,10 @@
     
      {% block content %}
      {% endblock %}
+
+<!-- Footer -->
+<footer></footer>
+<!-- /footer -->
 
 </body>
 

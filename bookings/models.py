@@ -23,7 +23,8 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     
-# Customer Review model
+#/customer review model
+
 
 # Review reply model
 
@@ -41,4 +42,4 @@ class Comment(models.Model):
     def __str__(self):
         return f"Review {self.body} by {self.name}"
 
-# Review reply model
+# /review reply model

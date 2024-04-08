@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +16,9 @@
     <!-- Grayscale Bootstrap Theme -->
 
     <!-- /grayscale bootstrap theme -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- /custom css -->
     <!-- Site Name -->
     <title>The Pizza Project | Community Based Pizza Co</title>
     <!--/site name-->
@@ -22,15 +27,13 @@
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="{{% url 'index' %}}">Home</a></li>
-            <li><a href="{{ url 'menu' %}}">Menu</a></li>
-            <li><a href="{{% url 'reviews' %}}">Reviews</a></li>
-            
+            <li><a href="{% url 'home' %}">Home</a></li>
+
             {% if user.is_authenticated %}
-            <li><a href="{{% url 'account_logout' %}}">Logout</a></li>
+            <li><a href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
-            <li><a href="{{% url 'account_signup' %}}">Register</a></li>
-            <li><a href="{{% url 'account_login' %}}">Login</a></li>
+            <li><a href="{% url 'account_signup' %}">Register</a></li>
+            <li><a href="{% url 'account_login' %}">Login</a></li>
             {% endif %}
         </ul>
      </nav>

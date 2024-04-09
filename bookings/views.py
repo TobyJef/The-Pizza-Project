@@ -19,8 +19,17 @@ class PostDetail(generic.View):
             request,
              'bookings/menu.html'
         )
-
 # /menu page view
+
+# Enquiries Page View
+class PostDetail(generic.View):
+
+    def enquiries(request):
+        return render (
+            request,
+             'bookings/enquiries.html'
+        )
+# /enquiries page view
 
 
 class PostDetail(View):

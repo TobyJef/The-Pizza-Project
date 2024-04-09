@@ -12,13 +12,11 @@ class PostList(generic.ListView):
 # /home page view
 
 # Menu Page View
-class PostDetail(generic.View):
 
-    def menu(request):
-        return render (
-            request,
-             'bookings/menu.html'
-        )
+def menu(request):
+    return render (
+            request, 'bookings/menu.html')
+            
 # /menu page view
 
 # Enquiries Page View

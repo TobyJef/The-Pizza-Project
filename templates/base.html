@@ -12,6 +12,8 @@
         fresh ingredients, pizza slice, grab and go, community, mobile pizza, charity, charitable, local charities" />
     <!-- /meta seo tags -->
     <!-- Favicon Icon -->
+    <script src="https://kit.fontawesome.com/89c531e7d1.js" crossorigin="anonymous"></script>
+    <i class="fa-solid fa-pizza-slice"></i>
     <!-- /favicon icon -->
     <!-- Grayscale Bootstrap Theme -->
 
@@ -25,12 +27,12 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a class="navbar-brand" href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'menu' %}">Menu</a></li>
-
-
+            <li><a href="{% url 'enquiries' %}">Enquiries</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
@@ -39,6 +41,7 @@
             {% endif %}
         </ul>
      </nav>
+     <!-- /navbar -->
     
      {% block content %}
      {% endblock %}

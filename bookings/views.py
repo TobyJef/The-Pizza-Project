@@ -5,7 +5,7 @@ from .models import Post
 
 
 # Home Page View
-def home(request):
+def index(request):
     return render (request,
         'bookings/index.html')
 

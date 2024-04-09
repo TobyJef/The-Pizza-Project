@@ -35,8 +35,10 @@ Site Goals
 ## Technologies
 
 - HTML, CSS, JavaScript
+- Python
 - Django
 - Bootstrap
+- Bootswatch for free Bootstrap themes. Lux Theme. 
 - Allauth for new user account registration 
 
 

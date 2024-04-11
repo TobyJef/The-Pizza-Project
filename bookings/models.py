@@ -2,44 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+# Customer Booking Model
 
-# Customer Review model
+class Booking(models.Model):
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
-class Post(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="review")
-    updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
-    excerpt = models.TextField(blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
-
-    class Meta:
-        ordering = ['-created_on']
-    
-    def __str__(self):
-        return self.title
-    
-#/customer review model
-
-
-# Review reply model
-
-class Comment(models.Model):
-
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    name = models.CharField(max_length=100)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ['created_on']
-
-    def __str__(self):
-        return f"Review {self.body} by {self.name}"
-
-# /review reply model
+    title = models.CharField(max_length=10)
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+    email = models.EmailField(max_length=100)
+    phone_number = models.IntegerField(null=True)
+    booking_date = models.DateField(max_length=8)
+    booking_time = models.TimeField(max_length=4)
+    address = models.CharField(max_length=150)
+    allergies = models.CharField(max_length=150)

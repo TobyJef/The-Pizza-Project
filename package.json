@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "startbootstrap-business-casual": "^7.0.9"
+    "startbootstrap-business-casual": "^7.0.9",
+    "startbootstrap-grayscale": "^7.0.6"
   }
 }

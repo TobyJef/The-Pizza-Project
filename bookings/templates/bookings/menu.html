@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
 <!-- Projects-->
 <section class="projects-section bg-light" id="projects">
@@ -7,7 +8,7 @@
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <!-- insert image here -->
-            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/menu.webp"
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'assets/img/menu.webp' %}"
                     alt="A chalkboard menu, showing the pizza slices we serve and prices. Cheese £8, Mushroom £10, Pepperoni £12, Hawaiian £12" />
             </div>
             <!-- /insert image here -->

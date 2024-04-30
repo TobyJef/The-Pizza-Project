@@ -15,3 +15,4 @@ class Booking(models.Model):
     booking_time = models.TimeField(max_length=4, null=True)
     address = models.CharField(max_length=150)
     allergies = models.CharField(max_length=150, default="No Allergies Stated")
+    booking_size = models.IntegerField(null=True)

@@ -3800,7 +3800,7 @@ textarea.form-control-lg {
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
-  --bs-navbar-color: rgba(0, 0, 0, 0.55);
+  --bs-navbar-color: var(--bs-link-color);
   --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
   --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
@@ -3842,7 +3842,7 @@ textarea.form-control-lg {
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
   font-size: var(--bs-navbar-brand-font-size);
-  color: var(--bs-navbar-brand-color);
+  color: #EC6436;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -8303,7 +8303,7 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #282526 !important;
 }
 
 .bg-dark {
@@ -8313,7 +8313,7 @@ textarea.form-control-lg {
 
 .bg-black {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #282526 !important;
 }
 
 .bg-white {

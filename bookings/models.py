@@ -10,7 +10,7 @@ class Booking(models.Model):
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
     email = models.EmailField(max_length=100)
-    phone_number = models.IntegerField(null=True)
+    phone_number = models.CharField(max_length=25)
     booking_date = models.DateField(null=True, auto_now=False, max_length=8)
     booking_time = models.TimeField(max_length=4, null=True)
     address = models.CharField(max_length=150)

@@ -16,3 +16,4 @@ class Booking(models.Model):
     address = models.CharField(max_length=150)
     allergies = models.CharField(max_length=150, default="No Allergies Stated")
     booking_size = models.IntegerField(null=True)
+    additional_requests = models.CharField(max_length=600, default="No Additional Request")

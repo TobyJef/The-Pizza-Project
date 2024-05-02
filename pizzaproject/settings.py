@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
-    'bookings',
+    'bookings'
 ]
 
 SITE_ID = 1

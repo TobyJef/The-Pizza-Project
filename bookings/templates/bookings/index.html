@@ -28,15 +28,55 @@
                 </p>
             </div>
         </div>
-        <img class="img-fluid" src="{% static 'assets/img/pizza-van.webp' %}" alt="..." />
+        <div class="col-lg-6">
+            <div class="col-lg-6 order-lg-first">
+            <img class="img-fluid" src="{% static 'assets/img/pizza-van.webp' %}"
+                alt="Image of The Pizza Project van" />
+            </div>
+        </div>
     </div>
 </section>
 <!-- /about the pizza project -->
+<section>
+    <div class="container mt-5">
+        <h2 class="text-black mb-4">Book Here</h2>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" required>
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required>
+            </div>
+            <div class="col-md-8">
+                <label for="emailInfo" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="emailInfo" required>
+            </div>
+            <div class="col-md-4">
+                <label for="phoneNumber" class="form-label">Contact Number</label>
+                <input type="text" class="form-control" id="phoneNumber" required>
+            </div>
+            <div class=""col-md-12>
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" rows="3" placeholder="11 Abbots Way, Hanham, Bristol, BS15 3FX"></textarea>
+            </div>
+            <div class=""col-md-12>
+                <label for="comments" class="form-label">Requests</label>
+                <textarea class="form-control" id="comments" rows="3" placeholder="Directions, Access Instructions etc."></textarea>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
 
+    </div>
+
+</section>
 <!-- Customer Reviews -->
 <section class="about-section text-center" id="about">
     <div>
-        <h3>Our Latest Reviews</h3>
+        <h3 class="text-black mb-4">Our Latest Reviews</h3>
         <p>
             ★★★★★ "Wow! We recently had Pizza Project cater our charity
             fundraiser, and they exceeded all our expectations. The pizza was

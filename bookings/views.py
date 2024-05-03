@@ -40,14 +40,21 @@ def booking(request):
         booking_date = request.POST.get('booking_date')
         booking_time = request.POST.get('booking_time')
         if booking_date or booking_time == None:
-            messages.success(request, "Please select a Date")
+            messages.success(request, "Please select a Date or Time")
             return redirect('bookings')
 
         
         request.session['booking_date'] = booking_date
         request.session['booking_time'] = booking_time
 
-        return redirect('bookingsSubmit')
+        return redirect('bookingSubmit')
 
 
-    return render(request, 'bo')
+    return render(request, 'enquiries.html', {
+        'weekdsays':weekdays,
+        'validateWeekdays':validateWeekdays,
+    })
+
+
+
+

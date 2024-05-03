@@ -37,60 +37,62 @@
     </div>
 </section>
 <!-- /about the pizza project -->
+<!-- Booking Form -->
 <section>
     <div class="container mt-5">
         <h2 class="text-black mb-4">Book Here</h2>
-        <form method="post" class="row g-3">
+        <!-- booking form submissions handled by formsubmit -->
+        <form class="row g-3" action="https://formsubmit.co/805a405e5d9e8501c244d4a50437aab8" method="POST">
             <div class="col-md-2">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" required>
+                <input type="text" class="form-control" id="title" name="title" required>
             </div>
             <div class="col-md-5">
                 <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" required>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
             </div>
             <div class="col-md-5">
                 <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName" required>
+                <input type="text" class="form-control" id="lastName" name="LastName" required>
             </div>
             <div class="col-md-8">
                 <label for="emailInfo" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="emailInfo" required>
+                <input type="email" class="form-control" id="emailInfo" name="email" required>
             </div>
             <div class="col-md-4">
                 <label for="phoneNumber" class="form-label">Contact Number</label>
-                <input type="text" class="form-control" id="phoneNumber" required>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
             </div>
             <div class="form-group col-md-4">
                 <label for="date" class="control-label">Date</label>
-                <input type="text" class="form-control" id="date" placeholder="DD/MM/YYYY" required>
+                <input type="text" class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" required>
             </div>
             <div class="form-group col-md-4">
                 <label for="time" class="control-label">Time</label>
-                <input type="text" class="form-control" id="time" placeholder="12:00" required>
+                <input type="text" class="form-control" id="time" name="time" placeholder="12:00" required>
             </div>
             <div class="form-group col-md-4">
                 <label for="partySize" class="control-label">Party Size</label>
-                <input type="text" class="form-control" id="partySize" placeholder="300" required>
+                <input type="text" class="form-control" id="partySize" placeholder="300" name="partySize" required>
             </div>
             <div class="col-md-12">
                 <label for="address" class="form-label">Address</label>
-                <textarea class="form-control" id="address" rows="3" placeholder="e.g. 11 Abbots Way, Hanham, Bristol, BS15 3FX" required></textarea>
+                <textarea class="form-control" id="address" rows="3" name="address" placeholder="e.g. 11 Abbots Way, Hanham, Bristol, BS15 3FX" required></textarea>
             </div>
             <div class="col-md-12">
                 <label for="dietaryRequirements" class="form-label">Dietary Requirements</label>
-                <textarea class="form-control" id="dietaryRequirements" rows="3" placeholder="e.g. Gluten Free, if none leave blank."></textarea>
+                <textarea class="form-control" id="dietaryRequirements" rows="3" name="dietaryRequirements" placeholder="e.g. Gluten Free, if none leave blank."></textarea>
             </div>
             <div class="col-md-12">
                 <label for="comments" class="form-label">Requests</label>
-                <textarea class="form-control" id="comments" rows="3" placeholder="Directions, Access Instructions etc."></textarea>
+                <textarea class="form-control" id="comments" rows="3" name="requests" placeholder="Directions, Access Instructions etc."></textarea>
             </div>
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
-
     </div>
+    <!-- /booking form -->
 
 </section>
 <!-- Customer Reviews -->

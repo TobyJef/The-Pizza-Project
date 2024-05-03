@@ -29,8 +29,8 @@ class Booking(models.Model):
     booking_date = models.DateField(null=True, auto_now=False, max_length=8)
     booking_time = models.TimeField(max_length=4, null=True)
     address = models.CharField(max_length=150)
-    allergies = models.CharField(max_length=150, default="No Allergies Stated")
+    dietary_requirements = models.CharField(max_length=150, default="No Dietary Requirements/Allergies Stated")
     booking_size = models.IntegerField(null=True)
-    additional_requests = models.CharField(max_length=600, default="No Additional Request")
+    requests = models.CharField(max_length=600, default="No Additional Request")
     def __str__(self):
         return f"{self.user.username} | booking_date: {self.booking_date} | time: {self.booking_time}"

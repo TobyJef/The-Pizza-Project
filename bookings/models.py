@@ -25,10 +25,13 @@ class Booking(models.Model):
     email = models.EmailField(max_length=100)
     phone_number = models.CharField(max_length=25)
     booking_date = models.DateField(null=True, auto_now=False, max_length=8)
-    booking_time = models.TimeField(max_length=4, null=True)
+    start_time = models.TimeField(auto_now_add=False, blank=False)
+    end_time = models.TimeField(auto_now_add=False, blank=False)
     address = models.CharField(max_length=150)
     dietary_requirements = models.CharField(max_length=150, default="No Diertary Requirements/Allergies Stated")
-    booking_size = models.IntegerField(null=True)
+    booking_size = models.PositiveIntegerField(null=True)
     requests = models.CharField(max_length=600, default="No Additional Request")
+    approved = models.BooleanField(default=True)
+    
     def __str__(self):
-        return f"{self.user.username} | booking_date: {self.booking_date} | time: {self.booking_time} | address: {self.address}"
+        return f"{self.user}. Date: {self.booking_date} | Time: {self.start_time} | Address: {self.address}"

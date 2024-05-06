@@ -71,6 +71,9 @@
                 <a href="{% url 'enquiries' %}">Enquiries</a>
             </div>
             <div class="navbar-nav">
+                <a href="{% url 'user_bookings'%}">My Bookings</a>
+            </div>
+            <div class="navbar-nav">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"

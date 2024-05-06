@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    
+<h1>Bookings</h1>
+
+<ul>
+    {% for x in mybookings %}
+    <li>{{ x.first_name }} {{x.last_name}}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

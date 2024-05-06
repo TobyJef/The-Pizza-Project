@@ -27,65 +27,14 @@ def enquiries(request):
         )
 # /enquiries page view
 
-def user_booking(request):
-    return render (
-        request, 'bookings/user_booking.html'
-    )
+# User Booking View
+def user_bookings(request):
+    mybookings = Booking.objects.all().values()
+    template = loader.get_template('user_bookings.html')
+    context = { 'mybookings' : mybookings}
 
-
-def booking(request):
-    # 
-    day = validWeekday(94)
-
-
-    # 
-    validateWeekdays = isWeekdayValid(weekdays)
-
-
-    if request.method == 'POST':
-        booking_date = request.POST.get('booking_date')
-        start_time = request.POST.get('start_time')
-        end_time = request.POST.get('end_time')
-        if booking_date or start_time or end_time == None:
-            messages.success(request, "Please select a Date or Start/End Time")
-            return redirect('bookings')
-
+    return HttpResponse (template.render(context, request))
         
-        request.session['booking_date'] = booking_date
-        request.session['start_time'] = start_time
-        request.session['end_time'] = end_time
-
-        return redirect('bookingSubmit')
+# /user booking view
 
 
-    return render(request, 'enquiries.html', {
-        'weekdsays':weekdays,
-        'validateWeekdays':validateWeekdays,
-    })
-
-class BookingList(FormView):
-    template_name ='user_booking.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['bookings'] = self.request.user.booking_set.all()
-        return context
-
-
-class BookingAmend(UpdateView):
-    model = Booking
-    template_name = 'amend_booking.html'
-    fields = ['booking_date', 'start_time', 'end_time', 'address', 'dietary_requirements', 'booking_size']
-    success_url ='/', 'user_booking.html'
-
-    def get_queryset(self):
-        return self.request.user.booking_set.all()
-
-
-class BookingDelete(DeleteView):
-    model = Booking
-    template_name = 'delete_booking.html'
-    success_url ='/', 'user_booking.html'
-
-    def get_queryset(self):
-        return self.request.user.booking_set.all()

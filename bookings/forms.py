@@ -12,8 +12,13 @@ class BookingForm(forms.Form):
         email = forms.EmailField()
         phone_number = forms.IntegerField(null=True)
         booking_date = forms.DateField(null=True, auto_now=False, max_length=8)
-        booking_time = forms.TimeField(max_length=4, null=True)
+        start_time = models.TimeField(auto_now_add=False, blank=False, null=True)
+        end_time = models.TimeField(auto_now_add=False, blank=False, null=True)
         address = forms.CharField(widget=forms.Textarea, max_length=150)
-        allergies = forms.CharField(widget=forms.Textarea, max_length=150, default="No Allergies Stated")
+        dietary_requirements = forms.CharField(widget=forms.Textarea, max_length=150, default="No Allergies Stated")
         booking_size = forms.IntegerField(null=True)
-        additional_requests = forms.CharField(widget=forms.Textarea, max_length=300, default="No Additional Request")
+        requests = forms.CharField(widget=forms.Textarea, max_length=300, default="No Additional Request")
+
+
+class DateForm(forms.Form):
+    date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])

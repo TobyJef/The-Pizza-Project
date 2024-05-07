@@ -3,13 +3,17 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<section class="projects-section bg-light" id="projects">
+<section class="projects-section bg-light" id="projects"> 
     
-<h1>Bookings</h1>
+<h1 class="text-white">Bookings</h1>
 
-<ul>
+<ul class="mb-0 text-white-50">
     {% for x in mybookings %}
-    <li>{{ x.first_name }} {{x.last_name}}</li>
+    <li>{{ x.title }}{{ x.first_name }} {{ x.last_name }}</li>
+    <li>{{ x.email}}{{ x.phone_number }} {{ x.booking_date }}</li>
+    <li>{{ x.address }}{{ x.booking_size }}</li>
+    <li>{{ x.start_time }}{{ x.end_time }}</li>
+    <li>{{ x.dietary_requirements }}{{ x.requests }}</li>
     {% endfor %}
 </ul>
 

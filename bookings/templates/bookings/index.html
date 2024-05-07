@@ -2,6 +2,20 @@
 {% block content %}
 {% load static %}
 
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">The Pizza Project</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">New York Style Mobile Pizza
+                </h2>
+                <a class="btn btn-primary" href="{% url 'account_login' %}">Book Now</a>
+            </div>
+        </div>
+    </div>
+</header>
+
 <!-- About The Pizza Project -->
 <section class="about-section text-center" id="about">
     <div class="container px-4 px-lg-5">
@@ -42,7 +56,7 @@
     <div class="container mt-5">
         <h2 class="text-black mb-4">Book Here</h2>
         <!-- booking form submissions handled by formsubmit -->
-        <form class="row g-3" action="https://formsubmit.co/805a405e5d9e8501c244d4a50437aab8" method="POST">
+        <form class="row g-3"  method="POST">
             <div class="col-md-2">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" name="title" required>
@@ -62,6 +76,13 @@
             <div class="col-md-4">
                 <label for="phoneNumber" class="form-label">Contact Number</label>
                 <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <div id="datetimepicker" type="text">
+                <script>
+                    $(function () {
+                      $("#datetimepicker").datetimepicker();
+                    });
+                  </script>
             </div>
             <div id="datepicker" class="form-group col-md-4" data-date-format="dd-mm-yyyy">
                 <label for="date" class="control-label">Date</label>

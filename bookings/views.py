@@ -31,8 +31,10 @@ def enquiries(request):
 
 # User Booking View
 def user_bookings(request):
+    print(request.user.id)
+
     return render (
-        request, 'user_bookings.html'
+        request, 'bookings/user_bookings.html', {"mybookings":[{"first_name": 'simon', "last_name": 'jones'}]}
     )
 
 # /user booking view
@@ -42,7 +44,7 @@ class BookingAmend(UserPassesTestMixin, UpdateView):
     model = Booking
     template_name = 'amend_booking.html'
     fields = ['booking_date', 'start_time', 'end_time', 'address', 'dietary_requirements', 'booking_size']
-    success_url ='/', 'user_booking.html'
+    success_url ='/', 'bookings/user_booking.html'
 
     def get_queryset(self):
         return self.request.user.booking_set.all()
@@ -51,7 +53,7 @@ class BookingAmend(UserPassesTestMixin, UpdateView):
 class BookingDelete(UserPassesTestMixin, DeleteView):
     model = Booking
     template_name = 'delete_booking.html'
-    success_url ='/', 'user_booking.html'
+    success_url ='/', 'bookings/user_booking.html'
 
     def get_queryset(self):
         return self.request.user.booking_set.all()

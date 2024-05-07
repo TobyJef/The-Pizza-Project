@@ -40,24 +40,19 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <!-- /grayscale bootstrap theme -->
 
+      <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <!-- XDSoft DateTimePicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+
     <!-- Site Name -->
     <title>The Pizza Project | New York Style Mobile Pizza Co</title>
     <!--/site name-->
 </head>
 
-<!-- Masthead-->
-<header class="masthead">
-    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-        <div class="d-flex justify-content-center">
-            <div class="text-center">
-                <h1 class="mx-auto my-0 text-uppercase">The Pizza Project</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5">New York Style Mobile Pizza
-                </h2>
-                <a class="btn btn-primary" href="{% url 'account_login' %}">Book Now</a>
-            </div>
-        </div>
-    </div>
-</header>
+
 
 <body id="page-top">
     <!-- Navbar -->
@@ -71,10 +66,11 @@
                 <a href="{% url 'enquiries' %}">Enquiries</a>
             </div>
             <div class="navbar-nav">
+                {% if user.is_authenticated %}
                 <a href="{% url 'user_bookings'%}">My Bookings</a>
             </div>
             <div class="navbar-nav">
-                {% if user.is_authenticated %}
+                
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
                         href="{% url 'account_logout' %}">Logout</a>

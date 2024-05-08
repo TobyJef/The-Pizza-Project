@@ -34,4 +34,4 @@ class Booking(models.Model):
     approved = models.BooleanField(default=True)
     
     def __str__(self):
-        return f"{self.user}. Date: {self.booking_date} | Time: {self.start_time} | Address: {self.address}"
+        return f"{self.user}. Date: {self.booking_date} | Start Time: {self.start_time} | End Time: {self.end_time} | Address: {self.address} | Booking Size: {self.booking_size}"

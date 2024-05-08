@@ -7,6 +7,7 @@ from .models import Booking
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic.edit import FormView, UpdateView, DeleteView
+from bookings.user_bookings import bookings_views
 
 # Home Page View
 def index(request):
@@ -30,14 +31,12 @@ def enquiries(request):
 # /enquiries page view
 
 # User Booking View
-def user_bookings(request):
-    print(request.user.id)
-
+def display_bookings(request):
+    bookings = bookings.objects.all()
     return render (
-        request, 'bookings/user_bookings.html', {"mybookings":[{"first_name": 'simon', "last_name": 'jones'}]}
+        request, 'bookings/user_bookings.html', {'bookings': bookings}
     )
-
-# /user booking view
+# /user booking view'
 
 
 class BookingAmend(UserPassesTestMixin, UpdateView):

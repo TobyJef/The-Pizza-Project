@@ -67,3 +67,5 @@ Their business model was used for my project due to it's uniqueness as amethod o
 - Holly from Tutor Assistance. Her quick assistance and observation of where I went wrong with my template inheretence and what was needed to correct my code, which was very much appreciated.
 
 - John from Tutor Assistance. for assisting me with an issue I had with the migrate command to my updated database models. With a brief review of my code and project files. A quick and easy solution was found.
+
+- Rebecca returning booking information 

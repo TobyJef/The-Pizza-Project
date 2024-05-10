@@ -14,11 +14,9 @@ Title = (
 )
 
 
-# Customer Booking Model
-
 class Booking(models.Model):
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    """ A model to create and manage customer bookings """
+    user = models.ForeignKey(User, related_name='booking_maker', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=10, choices=Title, blank=True)
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)

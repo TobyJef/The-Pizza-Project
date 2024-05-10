@@ -4,3 +4,4 @@ from django_summernote.admin import SummernoteModelAdmin
 
 # Booking Model
 admin.site.register(Booking)
+

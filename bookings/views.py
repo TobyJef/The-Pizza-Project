@@ -7,6 +7,8 @@ from .models import Booking
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views.generic.edit import FormView, UpdateView, DeleteView
+from django.views.generic import CreateView
+from .forms import BookingForm
 
 
 
@@ -36,7 +38,14 @@ def enquiries(request):
 
 """"My Bookings Page View"""
 def user_bookings(request):
+    model = Booking
     bookings = Booking.objects.all()
+    success_url = "user_bookings.html"
+
+    def form_valid(self, form):
+        form.instance.user =self.request.user
+        return super(user_bookings, self).form_valid(form)
+
     return render (
         request, 'bookings/user_bookings.html', {'bookings': bookings}
     )

@@ -32,6 +32,14 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-us110.gitpod.io','8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu111.gitpod.io','8000-tobyjef-thepizzaproject-6440appxd8y.ws-eu110.gitpod.io', '8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu110.gitpod.io', 'the-pizza-project-706f358fb150.herokuapp.com', 'the-pizza-project.herokuapp.com', 'localhost', 'https://8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu110.gitpod.io']
 CSRF_TRUSTED_ORIGINS =['https://8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu110.gitpod.io', 'https://the-pizza-project-706f358fb150.herokuapp.com/', 'https://*.herokuapp.com',"https://*.gitpod.io",]
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,7 +62,14 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+
+#Account Setup
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_USERNAME_MIN_LENGHT = 5
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -79,7 +94,8 @@ ROOT_URLCONF = 'pizzaproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR,
+                os.path.join(BASE_DIR, 'templates', 'allauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +104,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

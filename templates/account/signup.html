@@ -1,40 +1,23 @@
 {% extends "base.html" %}
 {% load allauth i18n %}
-{% block head_title %}
+{% block title %}
     {% trans "Signup" %}
-{% endblock head_title %}
+{% endblock title %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            {% element h1 %}
-                {% trans "Sign Up" %}
-            {% endelement %}
-            <p>
-                {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
-            </p>
-            {% url 'account_signup' as action_url %}
-            {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-                {% slot body %}
+<section class="about-section text-center" id="about">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <form class="form p-2" id="signup_form" method="post" action="{% url 'account_signup' %}" >
                     {% csrf_token %}
-                    {% element fields form=form unlabeled=True %}
-                    {% endelement %}
+                    {{ form|crispy }}
                     {% if redirect_field_value %}
-                        <input type="hidden"
-                            name="{{ redirect_field_name }}"
-                            value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }} value={{ redirect_field_value }}">
                     {% endif %}
-                {% endslot %}
-                {% slot actions %}
-                    {% element button tags="prominent,signup" type="submit" %}
-                        {% trans "Sign Up" %}
-                    {% endelement %}
-                {% endslot %}
-            {% endelement %}
-            {% if SOCIALACCOUNT_ENABLED %}
-                {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-            {% endif %}
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
 {% endblock content %}

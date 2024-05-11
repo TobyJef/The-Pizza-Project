@@ -2,50 +2,67 @@
 {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
-
-<section class="projects-section bg-light text-center" id="projects"> 
-    
-<h1 class="container px-4 px-lg-5">Bookings</h1>
-
-<div class="table-responsive">
-    <table class="table table-condensed">
-        <thead>
-            <tr>
-                <th class="text-white">Title</th>
-                <th class="text-white">First Name</th>
-                <th class="text-white">Last Name</th>
-                <th class="text-white">email</th>
-                <th class="text-white">Contact Number</th>
-                <th class="text-white">Date</th>
-                <th class="text-white">Start Time</th>
-                <th class="text-white">End Time</th>
-                <th class="text-white">Address</th>
-                <th class="text-white">Dietary Requirements</th>
-                <th class="text-white">Booking Size</th>
-                <th class="text-white">Requests</th>
-            </tr>
-        </thead>
-        <tbody class="text-white">
-            {% for user_booking in bookings %}
-            <tr>
-                <td class="text-white">{{ user_booking.title }}</td>
-                <td class="text-white">{{ user_booking.first_name }}</td>
-                <td class="text-white">{{ user_booking.last_name }}</td>
-                <td class="text-white">{{ user_booking.email }}</td>
-                <td class="text-white">{{ user_booking.phone_number }}</td>
-                <td class="text-white">{{ user_booking.booking_date }}</td>
-                <td class="text-white">{{ user_booking.start_time }}</td>
-                <td class="text-white">{{ user_booking.end_time }}</td>
-                <td class="text-white">{{ user_booking.address }}</td>
-                <td class="text-white">{{ user_booking.dietary_requirements }}</td>
-                <td class="text-white">{{ user_booking.booking_size }}</td>
-                <td class="text-white">{{ user_booking.requests }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-
-    </table>
-</div>
-
+<!-- Booking Form -->
+<section>
+    <h2 class="text-black mb-4">Make a Booking</h2>
+        <div class="container form-group mt-5"></div>
+            <!-- booking form submissions handled by formsubmit -->
+            <form class="form row g-3 p-2"  method="POST">
+                {% csrf_token %}
+                {{ booking_form|crispy }}
+                <div class="col-md-2">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="col-md-5">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="col-md-5">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="LastName" required>
+                </div>
+                <div class="col-md-8">
+                    <label for="emailInfo" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="emailInfo" name="email" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="phoneNumber" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div id="datetimepicker" type="text" class="form-group col-md-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="text" class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="start_time" class="control-label"> Start Time</label>
+                    <input type="text" class="form-control" id="start_time" name="start_time" placeholder="12:00" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="end_time" class="control-label"> End Time</label>
+                    <input type="text" class="form-control" id="end_time" name="end_time" placeholder="15:00" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="partySize" class="control-label">Party Size</label>
+                    <input type="text" class="form-control" id="partySize" placeholder="300" name="partySize" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" rows="3" name="address" placeholder="e.g. 11 Abbots Way, Hanham, Bristol, BS15 3FX" required></textarea>
+                </div>
+                <div class="col-md-12">
+                    <label for="dietaryRequirements" class="form-label">Dietary Requirements</label>
+                    <textarea class="form-control" id="dietaryRequirements" rows="3" name="dietaryRequirements" placeholder="e.g. Gluten Free, if none leave blank."></textarea>
+                </div>
+                <div class="col-md-12">
+                    <label for="comments" class="form-label">Requests</label>
+                    <textarea class="form-control" id="comments" rows="3" name="requests" placeholder="Directions, Access Instructions etc."></textarea>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+    </div>
+    <!-- /booking form -->
 </section>
 {% endblock %}

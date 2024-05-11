@@ -1,3 +1,5 @@
+# Note: Unfortunately and frustratingly, This Project is not yet finished. I will admit that Django has been a difficult and lengthy subject to fully get to grips with, and although progress has been made, it has been a slow learning curve. Throughout creation and deployment of this project I seemed to encounter an extensive list of issues, most notably and time consuming has been trying to solve issues with my booking form data not reaching the backend server and therefor not being able to display it on the front end. Only bookings made via the admin panel had CRUD functionality. But with determination it is my goal to have this project fully finished and at something of a decent standard.
+
 # The Pizza Project
 
 Welcome to The Pizza Project. Our aim is to provide the local and surrounding communities of Bristol with the freshest and highest quality pizza imaginable, outside of Italy or the pizza hotspots of the USA. We craft out pizza sauce and dough every morning, then load up our mobile pizza truck and head out on the open road where we top and cook our pizzas to order on site. Wether that is at your front door, wedding venue, high street or charity event. If we can drive there, we can cook there. Our pizzas are cooked in a wood fired pizza oven in the back of our pizza truck to ensure that authentic pizza experience.
@@ -10,11 +12,32 @@ This project, based on a fictitous mobile pizza restaurant of my own deisgn but 
 
 ## Contents
 
+The Contents of this site include,
+
+- A base html template, that handles the navbar and footer across all pages. Allowing for the ability to write once and reuse across the site by using block tags.
+
+- The Home page, featuring our masthead image and brand name, with a short introduction to The Pizza Project. It was originally intended to host the booking form also, but this was eventually moved to the profiles page.
+
+- The Menu page features a custom WePik image used for the menu itself. Designed to be straight to the point, but with scope to possibly improve upon this page in a future release by adding menu items, prices and nutritional information into a database and then displayed to allow for better customisation by the site owner.
+
+- Enquiries is a basic page found on most sites with similar buisness models. Featuring some images and brief snippets of text expanding some of what The Pizza Project can offer their customers, not mentioned in the Home page.
+
+- Profile page, is intended for the Business Owner to view the collective of all the bookings made.
+
+- User Bookings was intended to allow logged in users to make a booking, show those booking/s and also edit and delete them if required.
+
+- Reigster, a page that allows users to register an account for The Pizza Project.
+
+- Log In, a page that sits along side Register in the navbar that allows users to log in.
+
+- Log Out, This page allows users to log out. It is hidden on the navbar to those that have yet to register/log in to The Pizza Project Website, then once signed in replaces the Register and Log In spots within the navbar.
+
+
 ## User Experience
 
-### Strategy Place
+### Strategy Plane
 
-Site Goals
+The primary site goal of The Pizza Project, was to server as a buisiness to consumer website for a fictious mobile food truck that specialised in New York Style pizza slices. Through a combination of displaying images of similar mobile pizza trucks, a menu and a booking form that could be submitted by users following registering/logging into the website, where they could also edit and delete their booking providing the were still logged in.
 
 ### Scope Plane
 
@@ -26,20 +49,35 @@ Site Goals
 
 ## Skeleton Plane
 
-## Surfance Plane
+## Surface Plane
+
+Making use of Bootstrap 5.0, I chose to use the Grayscale bootstrap theme from StartBootstrap.com. This decision was made to help reduce the required amount of custom css and javascript that would normally be required.
+
+The Grayscale theme was chosen because I both liked the layout and design of this particular theme. Whilst also matching similarly to the original wireframes.
 
 ## Features
 
+- A navbar that provided direction to all the pages across the site. Home, Menu, Enquiries, Profile, My Booking, Register, Log In and Log Out.
+
+- A planned booking form to capture user information for bookings, with CRUD functionality.
+
 ## Database Design
+
+The database hosted by ElephantSQL, was designed to capture the essential information given by a user for the site with this particular business to consumer business model. These categories included:
+ Title, First Name, Last Name, Email, Phone Number, Booking Date, Start Time, End Time, Address, Dietary Requirements, Booking Size and Requests. 
+
+The plan for the data within the database was to have two seperate views, one for the logged in user so they can view and manage their own booking/s, and also one for the business owner to view all collective bookings from within that database.
 
 ## Technologies
 
-- HTML, CSS, JavaScript
+- HTML5, CSS3, JavaScript
 - Python
 - Django
-- Bootstrap
-- Bootswatch for free Bootstrap themes. Lux Theme. 
-- Allauth for new user account registration 
+- Bootstrap 5.0
+- Postgre ElephantSQL to handle the booking database
+- Allauth for new user account registration
+- Balsamiq wireframes
+- WePik for the bespoke chalkboard themed menu
 
 
 ## Testing
@@ -54,6 +92,8 @@ I encountered another issue, where after updating my database models and overcom
 
 ## Deployment
 
+Site deployment was carried out via Heroku.
+
 ## Credit
 
 - Inspiration for The Pizza Project can be attributed to I Scream Tacos. <https://i-scream-tacos.co.uk/> A local mobile food truck based nearby where I live in Bristol, UK. That can be hired to attend local or private events and serve their fresh daily made, traditional Mexican soft shell tacos.
@@ -64,8 +104,7 @@ Their business model was used for my project due to it's uniqueness as amethod o
 
     Details of issues that requried tutor assistance can be found in the above Bugs section.
 
-- Holly from Tutor Assistance. Her quick assistance and observation of where I went wrong with my template inheretence and what was needed to correct my code, which was very much appreciated.
+- Holly, John, Rebecca & Thomas from Tutor Assistance. Helped me along with issues from template inheritance, model migrations and returning a database views.
 
-- John from Tutor Assistance. for assisting me with an issue I had with the migrate command to my updated database models. With a brief review of my code and project files. A quick and easy solution was found.
 
-- Rebecca returning booking information 
+

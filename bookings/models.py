@@ -11,6 +11,20 @@ Title = (
     ("Ms", "Ms"),
     ("Dr", "Dr"),
     ("Prof", "Prof"),
+    ("Rev'd", "Rev'd"),
+)
+
+Time_Slots = (
+    ("12:00", "12:00"),
+    ("13:00", "13:00"),
+    ("14:00", "14:00"),
+    ("15:00", "15:00"),
+    ("16:00", "16:00"),
+    ("17:00", "17:00"),
+    ("18:00", "18:00"),
+    ("19:00", "19:00"),
+    ("20:00", "20:00"),
+    ("21:00", "21:00"), 
 )
 
 
@@ -23,13 +37,12 @@ class Booking(models.Model):
     email = models.EmailField(max_length=100)
     phone_number = models.CharField(max_length=25)
     booking_date = models.DateField(null=True, auto_now=False, max_length=8)
-    start_time = models.TimeField(auto_now_add=False, blank=False, null=True)
-    end_time = models.TimeField(auto_now_add=False, blank=False, null=True)
+    start_time = models.TimeField(auto_now_add=False, choices=Time_Slots, blank=False, null=True)
+    end_time = models.TimeField(auto_now_add=False, choices=Time_Slots, blank=False, null=True)
     address = models.CharField(max_length=150)
     dietary_requirements = models.CharField(max_length=150, default="No Diertary Requirements/Allergies Stated")
     booking_size = models.PositiveIntegerField(null=True)
     requests = models.CharField(max_length=600, default="No Additional Request")
     approved = models.BooleanField(default=True)
     
-    def __str__(self):
-        return f"{self.user}. Date: {self.booking_date} | Start Time: {self.start_time} | End Time: {self.end_time} | Address: {self.address} | Booking Size: {self.booking_size}"
+    

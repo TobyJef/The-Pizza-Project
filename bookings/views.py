@@ -28,16 +28,15 @@ def menu(request):
 
 
 
-""""Enquiries Page View"""
 def enquiries(request):
+    """"Enquiries Page View"""
     return render (
         request,'bookings/enquiries.html'
         )
 # /enquiries page view
 
-
-""""My Bookings Page View"""
 def user_bookings(request):
+    """"My Bookings Page View"""
     model = Booking
     bookings = Booking.objects.all()
     success_url = "user_bookings.html"
@@ -52,9 +51,32 @@ def user_bookings(request):
 # /user booking view'
 
 
+def profile(request):
+    """Profile View"""
+    if request == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/profile/')
+    else:
+        form = BookingForm()
+        return render(request, 'bookings/profile.html', {'booking_form': BookingForm})
+
+class AddBooking(LoginRequiredMixin, CreateView):
+    """Add Booking"""
+    template_name='bookings/profile.html'
+    model = Booking
+    form_class = BookingForm
+    success_url = '/bookings/'
+
+    def form_valid(self,form):
+        form.instance.user = self.request.user
+        return super(AddBooking, self).form_valid(form)
+
+
 class EditBooking(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """"Edit Booking"""
-    form_class = Booking
+    form_class = BookingForm
     model = Booking
     template_name = 'edit_booking.html'
     fields = ['booking_date', 'start_time', 'end_time', 'address', 'dietary_requirements', 'booking_size']
@@ -69,6 +91,7 @@ class EditBooking(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class DeleteBooking(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """"Delete Booking"""
     model = Booking
+    form_class = BookingForm
     template_name = 'delete_booking.html'
     success_url ='/', 'bookings/user_booking.html'
 

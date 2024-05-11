@@ -24,7 +24,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-us110.gitpod.io','8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu111.gitpod.io','8000-tobyjef-thepizzaproject-6440appxd8y.ws-eu110.gitpod.io', '8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu110.gitpod.io', 'the-pizza-project-706f358fb150.herokuapp.com', 'the-pizza-project.herokuapp.com', 'localhost', 'https://8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu110.gitpod.io']
 CSRF_TRUSTED_ORIGINS =['https://8000-tobyjef-thepizzaproject-2jwl132qdn1.ws-eu110.gitpod.io', 'https://the-pizza-project-706f358fb150.herokuapp.com/', 'https://*.herokuapp.com',"https://*.gitpod.io",]

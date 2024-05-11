@@ -43,6 +43,8 @@ The primary site goal of The Pizza Project, was to server as a buisiness to cons
 
  Agile Planning
 
+ - A Kanban board was created to help breakdown individual Epics and User Stories tasks
+
  *Kanban board screen shot*
 *EPICS*
 *User Stories*
@@ -89,6 +91,8 @@ The first bug I encountered building my project was very early in the developmen
 I also had an issue when setting up template inheretence for my pages. I had mistakenly placed my url's in double curly brackets instead of singular. Which was leading to a parse error when trying to run the pages. With spending longer than I should of reviewing my code to no avail. I reached out to Tutor Assistance, where Holly spotted my error and corrected me on my mistake. After applying Holly's fix, my errors had gone and my pages were working how the should.
 
 I encountered another issue, where after updating my database models and overcoming a brief issue with make migrations. It was the migrate command that followed which required me to turn again to Tutor Assistance after not finding an answer to the validation error, regarding invalid date format. This time John reviewed my code and project files, and since I had no actual database entries yet it was recommended that I reset my SQL database, delete the migration files in my file directory aside from the init.py, and run the make migrations and migrate command again, which corrected my issue.
+
+To round off the list of bugs, the final bug that was caught but unable to be squashed due to the lateness of it's catching was that when setting debug=False in settings.py before final deployment. All the previous css and images used through the bootstrap theme and site pages was removed.
 
 ## Deployment
 

@@ -11,13 +11,11 @@ from django.views.generic import CreateView
 from .forms import BookingForm
 
 
-
 def index(request):
     """"Home Page View"""
     return render (request,
         'bookings/index.html')
 # /home page view
-
 
 
 def menu(request):
@@ -27,7 +25,6 @@ def menu(request):
 # /menu page view
 
 
-
 def enquiries(request):
     """"Enquiries Page View"""
     return render (
@@ -35,36 +32,38 @@ def enquiries(request):
         )
 # /enquiries page view
 
+
 def user_bookings(request):
     """"My Bookings Page View"""
+    if request == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/user_bookings/')
+    else:
+        form = BookingForm()
+        return render(request, 'bookings/user_bookings.html', {'booking_form': BookingForm})
+# /user booking view'
+
+
+def profile(request):
+    """Profile View"""
     model = Booking
     bookings = Booking.objects.all()
-    success_url = "user_bookings.html"
+    success_url = "profile.html"
 
     def form_valid(self, form):
         form.instance.user =self.request.user
         return super(user_bookings, self).form_valid(form)
 
     return render (
-        request, 'bookings/user_bookings.html', {'bookings': bookings}
+        request, 'bookings/profile.html', {'bookings': bookings}
     )
-# /user booking view'
 
-
-def profile(request):
-    """Profile View"""
-    if request == 'POST':
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/profile/')
-    else:
-        form = BookingForm()
-        return render(request, 'bookings/profile.html', {'booking_form': BookingForm})
 
 class AddBooking(LoginRequiredMixin, CreateView):
     """Add Booking"""
-    template_name='bookings/profile.html'
+    template_name='bookings/user_bookings.html'
     model = Booking
     form_class = BookingForm
     success_url = '/bookings/'
